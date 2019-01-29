@@ -1,0 +1,734 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		55923B75871128E6077B14B3 /* libPods-iCloudPhotoSharingApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 655FC0A4569B01A3CA7A73EF /* libPods-iCloudPhotoSharingApp.a */; };
+		87CFDE129CC13F3B883F451E /* libPods-iCloudPhotoSharingAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F4930BC2CCB709B6C7FE510 /* libPods-iCloudPhotoSharingAppTests.a */; };
+		BA20373521E8572000FD30F0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BA20373421E8572000FD30F0 /* AppDelegate.m */; };
+		BA20373B21E8572000FD30F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA20373921E8572000FD30F0 /* Main.storyboard */; };
+		BA20373E21E8572000FD30F0 /* iCloudPhotoSharingApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BA20373C21E8572000FD30F0 /* iCloudPhotoSharingApp.xcdatamodeld */; };
+		BA20374021E8572100FD30F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA20373F21E8572100FD30F0 /* Assets.xcassets */; };
+		BA20374321E8572100FD30F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA20374121E8572100FD30F0 /* LaunchScreen.storyboard */; };
+		BA20374621E8572100FD30F0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BA20374521E8572100FD30F0 /* main.m */; };
+		BA20375021E8572200FD30F0 /* iCloudPhotoSharingAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BA20374F21E8572200FD30F0 /* iCloudPhotoSharingAppTests.m */; };
+		BA20375B21E8572200FD30F0 /* iCloudPhotoSharingAppUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BA20375A21E8572200FD30F0 /* iCloudPhotoSharingAppUITests.m */; };
+		BA20376A21E865B000FD30F0 /* UploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA20376921E865B000FD30F0 /* UploadViewController.m */; };
+		BA92F64121E8C49900D17C5F /* NavigateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA92F64021E8C49900D17C5F /* NavigateViewController.m */; };
+		C5079A7B40FED932EBEB2B11 /* libPods-iCloudPhotoSharingAppUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F75BED7A6FD231EAE337BA /* libPods-iCloudPhotoSharingAppUITests.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BA20374C21E8572200FD30F0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BA20372821E8572000FD30F0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BA20372F21E8572000FD30F0;
+			remoteInfo = iCloudPhotoSharingApp;
+		};
+		BA20375721E8572200FD30F0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BA20372821E8572000FD30F0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BA20372F21E8572000FD30F0;
+			remoteInfo = iCloudPhotoSharingApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		21F75BED7A6FD231EAE337BA /* libPods-iCloudPhotoSharingAppUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iCloudPhotoSharingAppUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		32DEF9A845D89BD11E0DC2BC /* Pods-iCloudPhotoSharingApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCloudPhotoSharingApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-iCloudPhotoSharingApp/Pods-iCloudPhotoSharingApp.release.xcconfig"; sourceTree = "<group>"; };
+		3998B2DAA75C91E607D709D1 /* Pods-iCloudPhotoSharingAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCloudPhotoSharingAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iCloudPhotoSharingAppUITests/Pods-iCloudPhotoSharingAppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		4F4930BC2CCB709B6C7FE510 /* libPods-iCloudPhotoSharingAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iCloudPhotoSharingAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		543185D85D539011CA566A1D /* Pods-iCloudPhotoSharingAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCloudPhotoSharingAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iCloudPhotoSharingAppTests/Pods-iCloudPhotoSharingAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		655FC0A4569B01A3CA7A73EF /* libPods-iCloudPhotoSharingApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iCloudPhotoSharingApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6BA95A60150A14E71F2B794F /* Pods-iCloudPhotoSharingApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCloudPhotoSharingApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iCloudPhotoSharingApp/Pods-iCloudPhotoSharingApp.debug.xcconfig"; sourceTree = "<group>"; };
+		BA1F6A9121F75DFA00784BC3 /* iCloudPhotoSharingApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iCloudPhotoSharingApp.entitlements; sourceTree = "<group>"; };
+		BA20373021E8572000FD30F0 /* iCloudPhotoSharingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCloudPhotoSharingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA20373321E8572000FD30F0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		BA20373421E8572000FD30F0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BA20373A21E8572000FD30F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BA20373D21E8572000FD30F0 /* iCloudPhotoSharingApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iCloudPhotoSharingApp.xcdatamodel; sourceTree = "<group>"; };
+		BA20373F21E8572100FD30F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BA20374221E8572100FD30F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BA20374421E8572100FD30F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA20374521E8572100FD30F0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BA20374B21E8572200FD30F0 /* iCloudPhotoSharingAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iCloudPhotoSharingAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA20374F21E8572200FD30F0 /* iCloudPhotoSharingAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iCloudPhotoSharingAppTests.m; sourceTree = "<group>"; };
+		BA20375121E8572200FD30F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA20375621E8572200FD30F0 /* iCloudPhotoSharingAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iCloudPhotoSharingAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA20375A21E8572200FD30F0 /* iCloudPhotoSharingAppUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iCloudPhotoSharingAppUITests.m; sourceTree = "<group>"; };
+		BA20375C21E8572200FD30F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA20376821E865B000FD30F0 /* UploadViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UploadViewController.h; sourceTree = "<group>"; };
+		BA20376921E865B000FD30F0 /* UploadViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UploadViewController.m; sourceTree = "<group>"; };
+		BA92F63F21E8C49900D17C5F /* NavigateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigateViewController.h; sourceTree = "<group>"; };
+		BA92F64021E8C49900D17C5F /* NavigateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavigateViewController.m; sourceTree = "<group>"; };
+		CE7859F79370517B5495328D /* Pods-iCloudPhotoSharingAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCloudPhotoSharingAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iCloudPhotoSharingAppTests/Pods-iCloudPhotoSharingAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		FF3CCAF301E50E98D6C343C2 /* Pods-iCloudPhotoSharingAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCloudPhotoSharingAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iCloudPhotoSharingAppUITests/Pods-iCloudPhotoSharingAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BA20372D21E8572000FD30F0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55923B75871128E6077B14B3 /* libPods-iCloudPhotoSharingApp.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA20374821E8572200FD30F0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				87CFDE129CC13F3B883F451E /* libPods-iCloudPhotoSharingAppTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA20375321E8572200FD30F0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5079A7B40FED932EBEB2B11 /* libPods-iCloudPhotoSharingAppUITests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8702314DF740CD6263A1D541 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6BA95A60150A14E71F2B794F /* Pods-iCloudPhotoSharingApp.debug.xcconfig */,
+				32DEF9A845D89BD11E0DC2BC /* Pods-iCloudPhotoSharingApp.release.xcconfig */,
+				CE7859F79370517B5495328D /* Pods-iCloudPhotoSharingAppTests.debug.xcconfig */,
+				543185D85D539011CA566A1D /* Pods-iCloudPhotoSharingAppTests.release.xcconfig */,
+				FF3CCAF301E50E98D6C343C2 /* Pods-iCloudPhotoSharingAppUITests.debug.xcconfig */,
+				3998B2DAA75C91E607D709D1 /* Pods-iCloudPhotoSharingAppUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		AABE630268F768F6BBDB92C6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				655FC0A4569B01A3CA7A73EF /* libPods-iCloudPhotoSharingApp.a */,
+				4F4930BC2CCB709B6C7FE510 /* libPods-iCloudPhotoSharingAppTests.a */,
+				21F75BED7A6FD231EAE337BA /* libPods-iCloudPhotoSharingAppUITests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BA20372721E8572000FD30F0 = {
+			isa = PBXGroup;
+			children = (
+				BA20373221E8572000FD30F0 /* iCloudPhotoSharingApp */,
+				BA20374E21E8572200FD30F0 /* iCloudPhotoSharingAppTests */,
+				BA20375921E8572200FD30F0 /* iCloudPhotoSharingAppUITests */,
+				BA20373121E8572000FD30F0 /* Products */,
+				8702314DF740CD6263A1D541 /* Pods */,
+				AABE630268F768F6BBDB92C6 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		BA20373121E8572000FD30F0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BA20373021E8572000FD30F0 /* iCloudPhotoSharingApp.app */,
+				BA20374B21E8572200FD30F0 /* iCloudPhotoSharingAppTests.xctest */,
+				BA20375621E8572200FD30F0 /* iCloudPhotoSharingAppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BA20373221E8572000FD30F0 /* iCloudPhotoSharingApp */ = {
+			isa = PBXGroup;
+			children = (
+				BA1F6A9121F75DFA00784BC3 /* iCloudPhotoSharingApp.entitlements */,
+				BA20373321E8572000FD30F0 /* AppDelegate.h */,
+				BA20373421E8572000FD30F0 /* AppDelegate.m */,
+				BA20376821E865B000FD30F0 /* UploadViewController.h */,
+				BA20376921E865B000FD30F0 /* UploadViewController.m */,
+				BA92F63F21E8C49900D17C5F /* NavigateViewController.h */,
+				BA92F64021E8C49900D17C5F /* NavigateViewController.m */,
+				BA20373921E8572000FD30F0 /* Main.storyboard */,
+				BA20373F21E8572100FD30F0 /* Assets.xcassets */,
+				BA20374121E8572100FD30F0 /* LaunchScreen.storyboard */,
+				BA20374421E8572100FD30F0 /* Info.plist */,
+				BA20374521E8572100FD30F0 /* main.m */,
+				BA20373C21E8572000FD30F0 /* iCloudPhotoSharingApp.xcdatamodeld */,
+			);
+			path = iCloudPhotoSharingApp;
+			sourceTree = "<group>";
+		};
+		BA20374E21E8572200FD30F0 /* iCloudPhotoSharingAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				BA20374F21E8572200FD30F0 /* iCloudPhotoSharingAppTests.m */,
+				BA20375121E8572200FD30F0 /* Info.plist */,
+			);
+			path = iCloudPhotoSharingAppTests;
+			sourceTree = "<group>";
+		};
+		BA20375921E8572200FD30F0 /* iCloudPhotoSharingAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BA20375A21E8572200FD30F0 /* iCloudPhotoSharingAppUITests.m */,
+				BA20375C21E8572200FD30F0 /* Info.plist */,
+			);
+			path = iCloudPhotoSharingAppUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BA20372F21E8572000FD30F0 /* iCloudPhotoSharingApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BA20375F21E8572200FD30F0 /* Build configuration list for PBXNativeTarget "iCloudPhotoSharingApp" */;
+			buildPhases = (
+				1120B87F28DE4D054C69375B /* [CP] Check Pods Manifest.lock */,
+				BA20372C21E8572000FD30F0 /* Sources */,
+				BA20372D21E8572000FD30F0 /* Frameworks */,
+				BA20372E21E8572000FD30F0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iCloudPhotoSharingApp;
+			productName = iCloudPhotoSharingApp;
+			productReference = BA20373021E8572000FD30F0 /* iCloudPhotoSharingApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BA20374A21E8572200FD30F0 /* iCloudPhotoSharingAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BA20376221E8572200FD30F0 /* Build configuration list for PBXNativeTarget "iCloudPhotoSharingAppTests" */;
+			buildPhases = (
+				57DE632B66A51D57FB321364 /* [CP] Check Pods Manifest.lock */,
+				BA20374721E8572200FD30F0 /* Sources */,
+				BA20374821E8572200FD30F0 /* Frameworks */,
+				BA20374921E8572200FD30F0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BA20374D21E8572200FD30F0 /* PBXTargetDependency */,
+			);
+			name = iCloudPhotoSharingAppTests;
+			productName = iCloudPhotoSharingAppTests;
+			productReference = BA20374B21E8572200FD30F0 /* iCloudPhotoSharingAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BA20375521E8572200FD30F0 /* iCloudPhotoSharingAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BA20376521E8572200FD30F0 /* Build configuration list for PBXNativeTarget "iCloudPhotoSharingAppUITests" */;
+			buildPhases = (
+				969A8587FBB67DDA77B7E50F /* [CP] Check Pods Manifest.lock */,
+				BA20375221E8572200FD30F0 /* Sources */,
+				BA20375321E8572200FD30F0 /* Frameworks */,
+				BA20375421E8572200FD30F0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BA20375821E8572200FD30F0 /* PBXTargetDependency */,
+			);
+			name = iCloudPhotoSharingAppUITests;
+			productName = iCloudPhotoSharingAppUITests;
+			productReference = BA20375621E8572200FD30F0 /* iCloudPhotoSharingAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BA20372821E8572000FD30F0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = jeanmartin;
+				TargetAttributes = {
+					BA20372F21E8572000FD30F0 = {
+						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 0;
+							};
+						};
+					};
+					BA20374A21E8572200FD30F0 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = BA20372F21E8572000FD30F0;
+					};
+					BA20375521E8572200FD30F0 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = BA20372F21E8572000FD30F0;
+					};
+				};
+			};
+			buildConfigurationList = BA20372B21E8572000FD30F0 /* Build configuration list for PBXProject "iCloudPhotoSharingApp" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BA20372721E8572000FD30F0;
+			productRefGroup = BA20373121E8572000FD30F0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BA20372F21E8572000FD30F0 /* iCloudPhotoSharingApp */,
+				BA20374A21E8572200FD30F0 /* iCloudPhotoSharingAppTests */,
+				BA20375521E8572200FD30F0 /* iCloudPhotoSharingAppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BA20372E21E8572000FD30F0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA20374321E8572100FD30F0 /* LaunchScreen.storyboard in Resources */,
+				BA20374021E8572100FD30F0 /* Assets.xcassets in Resources */,
+				BA20373B21E8572000FD30F0 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA20374921E8572200FD30F0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA20375421E8572200FD30F0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1120B87F28DE4D054C69375B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iCloudPhotoSharingApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		57DE632B66A51D57FB321364 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iCloudPhotoSharingAppTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		969A8587FBB67DDA77B7E50F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iCloudPhotoSharingAppUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BA20372C21E8572000FD30F0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA20373521E8572000FD30F0 /* AppDelegate.m in Sources */,
+				BA20374621E8572100FD30F0 /* main.m in Sources */,
+				BA20376A21E865B000FD30F0 /* UploadViewController.m in Sources */,
+				BA20373E21E8572000FD30F0 /* iCloudPhotoSharingApp.xcdatamodeld in Sources */,
+				BA92F64121E8C49900D17C5F /* NavigateViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA20374721E8572200FD30F0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA20375021E8572200FD30F0 /* iCloudPhotoSharingAppTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA20375221E8572200FD30F0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA20375B21E8572200FD30F0 /* iCloudPhotoSharingAppUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BA20374D21E8572200FD30F0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BA20372F21E8572000FD30F0 /* iCloudPhotoSharingApp */;
+			targetProxy = BA20374C21E8572200FD30F0 /* PBXContainerItemProxy */;
+		};
+		BA20375821E8572200FD30F0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BA20372F21E8572000FD30F0 /* iCloudPhotoSharingApp */;
+			targetProxy = BA20375721E8572200FD30F0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BA20373921E8572000FD30F0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BA20373A21E8572000FD30F0 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BA20374121E8572100FD30F0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BA20374221E8572100FD30F0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BA20375D21E8572200FD30F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		BA20375E21E8572200FD30F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BA20376021E8572200FD30F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6BA95A60150A14E71F2B794F /* Pods-iCloudPhotoSharingApp.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z7H4833SC7;
+				INFOPLIST_FILE = iCloudPhotoSharingApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jeanmartin.iCloudPhotoSharingApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BA20376121E8572200FD30F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 32DEF9A845D89BD11E0DC2BC /* Pods-iCloudPhotoSharingApp.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z7H4833SC7;
+				INFOPLIST_FILE = iCloudPhotoSharingApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jeanmartin.iCloudPhotoSharingApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		BA20376321E8572200FD30F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CE7859F79370517B5495328D /* Pods-iCloudPhotoSharingAppTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z7H4833SC7;
+				INFOPLIST_FILE = iCloudPhotoSharingAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jeanmartin.iCloudPhotoSharingAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iCloudPhotoSharingApp.app/iCloudPhotoSharingApp";
+			};
+			name = Debug;
+		};
+		BA20376421E8572200FD30F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 543185D85D539011CA566A1D /* Pods-iCloudPhotoSharingAppTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z7H4833SC7;
+				INFOPLIST_FILE = iCloudPhotoSharingAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jeanmartin.iCloudPhotoSharingAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iCloudPhotoSharingApp.app/iCloudPhotoSharingApp";
+			};
+			name = Release;
+		};
+		BA20376621E8572200FD30F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF3CCAF301E50E98D6C343C2 /* Pods-iCloudPhotoSharingAppUITests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z7H4833SC7;
+				INFOPLIST_FILE = iCloudPhotoSharingAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jeanmartin.iCloudPhotoSharingAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = iCloudPhotoSharingApp;
+			};
+			name = Debug;
+		};
+		BA20376721E8572200FD30F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3998B2DAA75C91E607D709D1 /* Pods-iCloudPhotoSharingAppUITests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z7H4833SC7;
+				INFOPLIST_FILE = iCloudPhotoSharingAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jeanmartin.iCloudPhotoSharingAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = iCloudPhotoSharingApp;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BA20372B21E8572000FD30F0 /* Build configuration list for PBXProject "iCloudPhotoSharingApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA20375D21E8572200FD30F0 /* Debug */,
+				BA20375E21E8572200FD30F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BA20375F21E8572200FD30F0 /* Build configuration list for PBXNativeTarget "iCloudPhotoSharingApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA20376021E8572200FD30F0 /* Debug */,
+				BA20376121E8572200FD30F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BA20376221E8572200FD30F0 /* Build configuration list for PBXNativeTarget "iCloudPhotoSharingAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA20376321E8572200FD30F0 /* Debug */,
+				BA20376421E8572200FD30F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BA20376521E8572200FD30F0 /* Build configuration list for PBXNativeTarget "iCloudPhotoSharingAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA20376621E8572200FD30F0 /* Debug */,
+				BA20376721E8572200FD30F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		BA20373C21E8572000FD30F0 /* iCloudPhotoSharingApp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BA20373D21E8572000FD30F0 /* iCloudPhotoSharingApp.xcdatamodel */,
+			);
+			currentVersion = BA20373D21E8572000FD30F0 /* iCloudPhotoSharingApp.xcdatamodel */;
+			path = iCloudPhotoSharingApp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = BA20372821E8572000FD30F0 /* Project object */;
+}

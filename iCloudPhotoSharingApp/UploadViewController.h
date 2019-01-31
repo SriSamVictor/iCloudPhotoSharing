@@ -33,6 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIView *gDriveView;
 @property (weak, nonatomic) IBOutlet UIView *dropBoxView;
 @property(strong,nonatomic)NSError *error;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @end
 
 NS_ASSUME_NONNULL_END

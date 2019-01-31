@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E175DBAE34E3426C0C6B2D4FCD87A935"
+               BlueprintIdentifier = "2782BE66B23E066218E76BF7E52A642B"
                BlueprintName = "Pods-iCloudPhotoSharingApp"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "libPods-iCloudPhotoSharingApp.a">

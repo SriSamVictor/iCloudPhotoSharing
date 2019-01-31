@@ -12,14 +12,16 @@
 #import <AVFoundation/AVFoundation.h>
 #import <AVKit/AVKit.h>
 #import <ObjectiveDropboxOfficial/ObjectiveDropboxOfficial.h>
+#import <SVProgressHUD/SVProgressHUD.h>
 
 @interface UploadViewController (){
-    UIImage *image ;
+    UIImage *savedImage ;
     NSURL *videoURL;
     AVPlayer *player;
     NSString *videoUrlStr;
     NSString *moviePath;
     UIActivityIndicatorView *myActivityIndicator;
+    NSString *newFileDirectory;
 }
 
 @end
@@ -46,11 +48,27 @@
     self.gDriveView.layer.borderColor =  [UIColor lightGrayColor].CGColor;
     self.dropBoxView.layer.borderWidth =  0.5f;
     self.dropBoxView.layer.borderColor =  [UIColor lightGrayColor].CGColor;
-    myActivityIndicator = [[UIActivityIndicatorView alloc]init];
 }
 - (void)viewWillAppear:(BOOL)animated{
         [super viewWillAppear:YES];
     
+    NSError *error;
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSString *oldDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSMutableArray *fileCreationArray = [NSMutableArray arrayWithObjects:@"Others",@"Video",@"Pictures", nil];
+    NSString *newDirectory;
+    for(int i = 0; i < [fileCreationArray count];i++){
+        newDirectory = [fileCreationArray objectAtIndex:i];
+        newFileDirectory = [oldDirectory stringByAppendingPathComponent:newDirectory];
+        if([fileManager createDirectoryAtPath:newFileDirectory withIntermediateDirectories:NO attributes:nil error:&error]){
+            NSLog(@"File created successfully");
+        }else{
+            NSLog(@"File Already Exists");
+        };
+    }
+}
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:YES];
 
 }
 - (IBAction)cameraBtnAction:(id)sender {
@@ -62,20 +80,15 @@
 }
 
 - (IBAction)videoBtnAction:(id)sender {
-    
-//    UIImagePickerController *pickerVideo = [[UIImagePickerController alloc] init];
-//    pickerVideo.sourceType = UIImagePickerControllerSourceTypeCamera;
-//    pickerVideo.mediaTypes = [NSArray arrayWithObjects:(NSString*)kUTTypeMovie, nil];
-//    pickerVideo.delegate = self;
-//    [self presentViewController:pickerVideo animated:YES completion:nil];
-    
-    UIImagePickerController *videoPicker = [[UIImagePickerController alloc] init];
-    videoPicker.delegate = self;
-    videoPicker.modalPresentationStyle = UIModalPresentationCurrentContext;
-    videoPicker.sourceType = UIImagePickerControllerSourceTypeCamera;
-    videoPicker.mediaTypes = [[NSArray alloc] initWithObjects:(NSString *)kUTTypeMovie,(NSString *)kUTTypeVideo, nil];
-    videoPicker.videoQuality = UIImagePickerControllerQualityTypeHigh;
-    [self presentViewController:videoPicker animated:YES completion:nil];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        UIImagePickerController *videoPicker = [[UIImagePickerController alloc] init];
+        videoPicker.delegate = self;
+        videoPicker.modalPresentationStyle = UIModalPresentationCurrentContext;
+        videoPicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        videoPicker.mediaTypes = [[NSArray alloc] initWithObjects:(NSString *)kUTTypeMovie,(NSString *)kUTTypeVideo, nil];
+        videoPicker.videoQuality = UIImagePickerControllerQualityTypeHigh;
+        [self presentViewController:videoPicker animated:YES completion:nil];
+    });
 }
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<UIImagePickerControllerInfoKey,id> *)info{
     [picker dismissViewControllerAnimated:YES completion:nil];
@@ -85,12 +98,13 @@
     videoUrlStr = [NSString stringWithFormat:@"%@",videoURL];
     if([videoUrlStr containsString:@".MOV"]){
         player = [AVPlayer playerWithURL:videoURL];
-        AVAsset *asset = [AVAsset assetWithURL:videoURL];
         
+        AVAsset *asset = [AVAsset assetWithURL:videoURL];
+
         // Calculate a time for the snapshot - I'm using the half way mark.
         CMTime duration = [asset duration];
         CMTime snapshot = CMTimeMake(duration.value / 2, duration.timescale);
-        
+
         // Create a generator and copy image at the time.
         // I'm not capturing the actual time or an error.
         AVAssetImageGenerator *generator =
@@ -98,11 +112,12 @@
         CGImageRef imageRef = [generator copyCGImageAtTime:snapshot
                                                 actualTime:nil
                                                      error:nil];
-        
+
         // Make a UIImage and release the CGImage.
         UIImage *thumbnail = [UIImage imageWithCGImage:imageRef];
         self.videoThumbnailImageView.image = thumbnail;
         CGImageRelease(imageRef);
+        
         [self.view addSubview:self.avPlayerView];
         [self.avPlayerView setHidden:NO];
         [_initialView setHidden:YES];
@@ -110,8 +125,8 @@
         
     }else{
 //         For Image
-        image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
-        self.imageViewOutlet.image=image;
+        savedImage = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+        self.imageViewOutlet.image=savedImage;
         [self.avPlayerView setHidden:YES];
         [self.initialView setHidden:YES];
         [self.imageSuperView setHidden:NO];
@@ -119,7 +134,6 @@
     }
 
     // For saving video to gallery
-    
     NSString *mediaType = [info objectForKey: UIImagePickerControllerMediaType];
 
     if (CFStringCompare ((__bridge CFStringRef) mediaType, kUTTypeMovie, 0) == kCFCompareEqualTo) {
@@ -154,6 +168,7 @@
                 
                 UIAlertController *alertControl = [UIAlertController alertControllerWithTitle:@"Alert" message:@"Are you sure want to clear the image" preferredStyle:UIAlertControllerStyleAlert];
                 UIAlertAction *alertActionOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    
                             self.imageViewOutlet.image = nil;
                             [self.avPlayerView setHidden:YES];
                             [self.initialView setHidden:NO];
@@ -191,7 +206,7 @@
 //    [self presentViewController:documentPicker animated:YES completion:nil];
     
 }
-#pragma mark - iCloud files
+#pragma mark - iCloud delegate and datasource
 - (void)documentPicker:(UIDocumentPickerViewController *)controller didPickDocumentAtURL:(NSURL *)url {
     if (controller.documentPickerMode == UIDocumentPickerModeImport) {
         
@@ -206,8 +221,8 @@
                                                   preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                 NSData *fileData = [NSData dataWithContentsOfURL:url];
-                self->image = [UIImage imageWithData:fileData];
-                self.imageViewOutlet.image = self->image;
+                self->savedImage = [UIImage imageWithData:fileData];
+                self.imageViewOutlet.image = self->savedImage;
                 [self.initialView setHidden:YES];
                 [self.avPlayerView setHidden:YES];
                 [self.imageSuperView setHidden:NO];
@@ -251,10 +266,10 @@
     // NSData of the content that was downloaded - Use this to upload on the server or save locally in directory
 }
 - (IBAction)saveBtnAction:(id)sender {
-    if(_imageViewOutlet.image != nil || self.videoThumbnailImageView.image !=nil){
+    if(_imageViewOutlet.image != nil || self.videoThumbnailImageView.image != nil){
         if([videoUrlStr containsString:@".MOV"]){
 
-            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:@"Video saved successfully to your gallery" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:@"Video saved successfully to your gallery and files app...!!!" preferredStyle:UIAlertControllerStyleAlert];
             
             UIAlertAction *ok = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                 //button click event
@@ -265,30 +280,30 @@
                 [self.avPlayerView setHidden:YES];
                 [self.initialView setHidden:NO];
                 [self.imageSuperView setHidden:YES];
+                NSString *searchFolderName = @"Video";
+                NSString *newVideoDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+                
+                NSPredicate *predicate = [NSPredicate predicateWithFormat:@"self.lastPathComponent == %@", searchFolderName];
+                NSArray *matchingPaths = [[[NSFileManager defaultManager] subpathsAtPath:newVideoDirectory] filteredArrayUsingPredicate:predicate];
+                NSLog(@"%@", matchingPaths);
+                NSString *videoStr = [matchingPaths objectAtIndex:0];
+                NSString *newVideoPath = [newVideoDirectory stringByAppendingPathComponent:videoStr];
+                [self saveVideo:self->moviePath pathString:newVideoPath];
             }];
             [alert addAction:ok];
             [self presentViewController:alert animated:YES completion:nil];
             
         }else{
-            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:@"Picture saved successfully to your gallery" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:@"Picture saved successfully to your gallery and files app...!!!" preferredStyle:UIAlertControllerStyleAlert];
             
             UIAlertAction *ok = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                 //button click event
-                NSError *error;
-                NSFileManager *fileManager = [NSFileManager defaultManager];
-                NSString *oldDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-                NSString *newDirectory = [oldDirectory stringByAppendingPathComponent:@"DriveStore"];
-                if([fileManager createDirectoryAtPath:newDirectory withIntermediateDirectories:NO attributes:nil error:&error]){
-                    NSLog(@"File created successfully");
-                    UIImageWriteToSavedPhotosAlbum(self->image, nil, nil, nil);
-                    self.imageViewOutlet.image = nil;
-                    [self.avPlayerView setHidden:YES];
-                    [self.initialView setHidden:NO];
-                    [self.imageSuperView setHidden:YES];
-                }else{
-                    NSLog(@"Error %@",error);
-                }
-               
+                        UIImageWriteToSavedPhotosAlbum(self->savedImage, nil, nil, nil);
+                        self.imageViewOutlet.image = nil;
+                        [self.avPlayerView setHidden:YES];
+                        [self.imageSuperView setHidden:YES];
+                        [self.initialView setHidden:NO];
+                [self saveImage:self->savedImage pathString:self->newFileDirectory];
             }];
             [alert addAction:ok];
             [self presentViewController:alert animated:YES completion:nil];
@@ -303,13 +318,51 @@
         [self presentViewController:alert animated:YES completion:nil];
     }
 }
+// Generate Random string
+- (NSString *)genRandStringLength:(int)len {
+    static NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    NSMutableString *randomString = [NSMutableString stringWithCapacity: len];
+    for (int i=0; i<len; i++) {
+        [randomString appendFormat: @"%C", [letters characterAtIndex: arc4random() % [letters length]]];
+    }
+    return randomString;
+}
+// Save the image in the files
+- (void)saveImage: (UIImage*)image pathString:(NSString *)pathString
+{
+    if (image != nil)
+    {
+        if([pathString containsString:@"Pictures"]){
+            NSString *randomString =  [self genRandStringLength:5];
+            NSString *randomStringGenerator = [randomString stringByAppendingString:@".JPEG"];
+            NSString* path = [pathString stringByAppendingPathComponent:randomStringGenerator];
+            NSData* data = UIImagePNGRepresentation(image);
+            [data writeToFile:path atomically:YES];
+        }else{
+            NSLog(@"We can't support another file");
+        }
+    }
+}
+// Save the video in the files
+-(void)saveVideo: (NSString *)movieUrl pathString:(NSString *)pathString
+{
+        if([pathString containsString:@"Video"]){
+            NSURL *videourl = [NSURL URLWithString:videoUrlStr];
+            NSData *videoData = [NSData dataWithContentsOfURL:videourl];
+           NSString *newRandomStr =  [NSString stringWithFormat:@"%@/%@%@",pathString,[self genRandStringLength:5],@".mp4"];
+            BOOL success = [videoData writeToFile:newRandomStr atomically:NO];
+            NSLog(@"success %d",success);
+        }else{
+             NSLog(@"We can't support another file");
+        }
+}
 
 - (IBAction)galleryButtonAction:(id)sender {
-    UIImagePickerController *pickerView = [[UIImagePickerController alloc] init];
-    pickerView.allowsEditing = YES;
-    pickerView.delegate = self;
-    [pickerView setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
-    [self presentViewController:pickerView animated:YES completion:nil];
+        UIImagePickerController *pickerView = [[UIImagePickerController alloc] init];
+        pickerView.allowsEditing = YES;
+        pickerView.delegate = self;
+        [pickerView setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+        [self presentViewController:pickerView animated:YES completion:nil];
 }
 
 - (IBAction)playVideo:(id)sender {
@@ -339,7 +392,7 @@
     NSData *fileData = [@"Hi how are you" dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:NO];
     // For overriding on upload
     DBFILESWriteMode *mode = [[DBFILESWriteMode alloc] initWithOverwrite];
-    [[[client.filesRoutes uploadData:@"/t/d/a.txt"
+    [[[client.filesRoutes uploadData:@"/t/d"
                                     mode:mode
                                     autorename:@(YES)
                                     clientModified:nil

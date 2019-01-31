@@ -242,38 +242,6 @@
                                     <constraint firstItem="lUR-M7-pDm" firstAttribute="centerX" secondItem="G37-k4-Isu" secondAttribute="centerX" id="eze-SW-mte"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fwM-Ux-0wx">
-                                <rect key="frame" x="0.0" y="135" width="375" height="482"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xI6-X0-Jhi">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="482"/>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="xI6-X0-Jhi" firstAttribute="top" secondItem="fwM-Ux-0wx" secondAttribute="top" id="dft-DP-P64"/>
-                                    <constraint firstItem="xI6-X0-Jhi" firstAttribute="leading" secondItem="fwM-Ux-0wx" secondAttribute="leading" id="iCh-vo-l0l"/>
-                                    <constraint firstAttribute="trailing" secondItem="xI6-X0-Jhi" secondAttribute="trailing" id="iiV-Pk-52G"/>
-                                    <constraint firstAttribute="bottom" secondItem="xI6-X0-Jhi" secondAttribute="bottom" id="v1g-Oh-t6M"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1wN-CL-Oca">
-                                <rect key="frame" x="0.0" y="135" width="375" height="482"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Pd-WD-I5i">
-                                        <rect key="frame" x="31.5" y="225" width="312" height="32"/>
-                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
-                                        <state key="normal" title="Choose camera,video or gallery icon on top">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="7Pd-WD-I5i" firstAttribute="centerX" secondItem="1wN-CL-Oca" secondAttribute="centerX" id="Zf7-UZ-A2q"/>
-                                    <constraint firstItem="7Pd-WD-I5i" firstAttribute="centerY" secondItem="1wN-CL-Oca" secondAttribute="centerY" id="qIA-rD-Ups"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VlN-IV-r7k">
                                 <rect key="frame" x="0.0" y="135" width="375" height="482"/>
                                 <subviews>
@@ -306,6 +274,48 @@
                                     <constraint firstItem="tfh-yG-fZ4" firstAttribute="leading" secondItem="VlN-IV-r7k" secondAttribute="leading" id="fdJ-aq-u5M"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1wN-CL-Oca">
+                                <rect key="frame" x="0.0" y="135" width="375" height="482"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Pd-WD-I5i">
+                                        <rect key="frame" x="31.5" y="225" width="312" height="32"/>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
+                                        <state key="normal" title="Choose camera,video or gallery icon on top">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="7Pd-WD-I5i" firstAttribute="centerX" secondItem="1wN-CL-Oca" secondAttribute="centerX" id="Zf7-UZ-A2q"/>
+                                    <constraint firstItem="7Pd-WD-I5i" firstAttribute="centerY" secondItem="1wN-CL-Oca" secondAttribute="centerY" id="qIA-rD-Ups"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fwM-Ux-0wx">
+                                <rect key="frame" x="0.0" y="135" width="375" height="482"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xI6-X0-Jhi">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="482"/>
+                                    </imageView>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="18m-hw-UMz">
+                                        <rect key="frame" x="137.5" y="191" width="100" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="4kS-Oz-SDc"/>
+                                            <constraint firstAttribute="width" constant="100" id="6AU-Rp-rs8"/>
+                                        </constraints>
+                                        <color key="color" red="1" green="0.0" blue="0.18667996313140733" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="18m-hw-UMz" firstAttribute="centerY" secondItem="fwM-Ux-0wx" secondAttribute="centerY" id="Hel-ZU-ku0"/>
+                                    <constraint firstItem="18m-hw-UMz" firstAttribute="centerX" secondItem="fwM-Ux-0wx" secondAttribute="centerX" id="Laa-O8-I1d"/>
+                                    <constraint firstItem="xI6-X0-Jhi" firstAttribute="top" secondItem="fwM-Ux-0wx" secondAttribute="top" id="dft-DP-P64"/>
+                                    <constraint firstItem="xI6-X0-Jhi" firstAttribute="leading" secondItem="fwM-Ux-0wx" secondAttribute="leading" id="iCh-vo-l0l"/>
+                                    <constraint firstAttribute="trailing" secondItem="xI6-X0-Jhi" secondAttribute="trailing" id="iiV-Pk-52G"/>
+                                    <constraint firstAttribute="bottom" secondItem="xI6-X0-Jhi" secondAttribute="bottom" id="v1g-Oh-t6M"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -334,6 +344,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="e53-G3-DMT"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="18m-hw-UMz" id="7U4-Ay-Shh"/>
                         <outlet property="avPlayerView" destination="VlN-IV-r7k" id="kFK-3F-D9j"/>
                         <outlet property="cameraView" destination="iBd-PS-rEU" id="JSr-Hg-zPu"/>
                         <outlet property="dropBoxView" destination="Mad-6x-SAG" id="INE-0V-MCd"/>
@@ -373,10 +384,9 @@
         <!--Navigation Controller-->
         <scene sceneID="fxV-2C-Ety">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MEe-Y6-Ber" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="MEe-Y6-Ber" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0le-gw-JYH">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

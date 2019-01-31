@@ -25,7 +25,7 @@ typedef NS_ENUM(NSInteger, GIFSize) {
 
 + (void)optimalGIFfromURL:(NSURL*)videoURL loopCount:(int)loopCount completion:(void(^)(NSURL *GifURL))completionBlock {
 
-    float delayTime = 0.02f;
+    float delayTime = 0.15f;
     
     // Create properties dictionaries
     NSDictionary *fileProperties = [self filePropertiesWithLoopCount:loopCount];

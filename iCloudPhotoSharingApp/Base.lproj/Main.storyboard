@@ -242,38 +242,6 @@
                                     <constraint firstItem="lUR-M7-pDm" firstAttribute="centerX" secondItem="G37-k4-Isu" secondAttribute="centerX" id="eze-SW-mte"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VlN-IV-r7k">
-                                <rect key="frame" x="0.0" y="135" width="375" height="482"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tfh-yG-fZ4">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="482"/>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="msL-0b-fAe">
-                                        <rect key="frame" x="157.5" y="211" width="60" height="60"/>
-                                        <state key="normal" image="playvideo"/>
-                                        <connections>
-                                            <action selector="playVideo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jkh-ji-hzY"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Click to play video" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ja2-XC-DJW">
-                                        <rect key="frame" x="133" y="289" width="109" height="16.5"/>
-                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="15"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="ja2-XC-DJW" firstAttribute="centerX" secondItem="msL-0b-fAe" secondAttribute="centerX" id="6US-d3-ljn"/>
-                                    <constraint firstItem="msL-0b-fAe" firstAttribute="centerY" secondItem="VlN-IV-r7k" secondAttribute="centerY" id="IWi-l3-e0j"/>
-                                    <constraint firstItem="ja2-XC-DJW" firstAttribute="top" secondItem="VlN-IV-r7k" secondAttribute="top" constant="289" id="OH2-IO-LsW"/>
-                                    <constraint firstItem="msL-0b-fAe" firstAttribute="centerX" secondItem="VlN-IV-r7k" secondAttribute="centerX" id="ORv-KF-jRj"/>
-                                    <constraint firstAttribute="trailing" secondItem="tfh-yG-fZ4" secondAttribute="trailing" id="WN0-Tr-XE6"/>
-                                    <constraint firstItem="tfh-yG-fZ4" firstAttribute="top" secondItem="VlN-IV-r7k" secondAttribute="top" id="aeB-Xi-JED"/>
-                                    <constraint firstAttribute="bottom" secondItem="tfh-yG-fZ4" secondAttribute="bottom" id="awi-46-5JL"/>
-                                    <constraint firstItem="tfh-yG-fZ4" firstAttribute="leading" secondItem="VlN-IV-r7k" secondAttribute="leading" id="fdJ-aq-u5M"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1wN-CL-Oca">
                                 <rect key="frame" x="0.0" y="135" width="375" height="482"/>
                                 <subviews>
@@ -316,6 +284,49 @@
                                     <constraint firstAttribute="bottom" secondItem="xI6-X0-Jhi" secondAttribute="bottom" id="v1g-Oh-t6M"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VlN-IV-r7k">
+                                <rect key="frame" x="0.0" y="135" width="375" height="482"/>
+                                <subviews>
+                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tfh-yG-fZ4">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="482"/>
+                                    </imageView>
+                                    <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="89o-cY-zFw">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="482"/>
+                                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </webView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="lEK-QQ-KXX">
+                                        <rect key="frame" x="133" y="181" width="109" height="120"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="msL-0b-fAe">
+                                                <rect key="frame" x="0.0" y="0.0" width="109" height="60"/>
+                                                <state key="normal" image="playvideo"/>
+                                                <connections>
+                                                    <action selector="playVideo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jkh-ji-hzY"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Click to play video" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ja2-XC-DJW">
+                                                <rect key="frame" x="0.0" y="60" width="109" height="60"/>
+                                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="15"/>
+                                                <color key="textColor" red="0.96470588239999999" green="0.96862745100000003" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="89o-cY-zFw" secondAttribute="trailing" id="4xo-xS-CuJ"/>
+                                    <constraint firstItem="lEK-QQ-KXX" firstAttribute="centerX" secondItem="VlN-IV-r7k" secondAttribute="centerX" id="9fB-HC-EgE"/>
+                                    <constraint firstAttribute="bottom" secondItem="89o-cY-zFw" secondAttribute="bottom" id="GPh-41-uz6"/>
+                                    <constraint firstItem="89o-cY-zFw" firstAttribute="top" secondItem="VlN-IV-r7k" secondAttribute="top" id="KeT-WM-4XG"/>
+                                    <constraint firstAttribute="trailing" secondItem="tfh-yG-fZ4" secondAttribute="trailing" id="WN0-Tr-XE6"/>
+                                    <constraint firstItem="tfh-yG-fZ4" firstAttribute="top" secondItem="VlN-IV-r7k" secondAttribute="top" id="aeB-Xi-JED"/>
+                                    <constraint firstAttribute="bottom" secondItem="tfh-yG-fZ4" secondAttribute="bottom" id="awi-46-5JL"/>
+                                    <constraint firstItem="tfh-yG-fZ4" firstAttribute="leading" secondItem="VlN-IV-r7k" secondAttribute="leading" id="fdJ-aq-u5M"/>
+                                    <constraint firstItem="89o-cY-zFw" firstAttribute="leading" secondItem="VlN-IV-r7k" secondAttribute="leading" id="lSu-ez-Hl6"/>
+                                    <constraint firstItem="lEK-QQ-KXX" firstAttribute="centerY" secondItem="VlN-IV-r7k" secondAttribute="centerY" id="znQ-hV-UbY"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -355,8 +366,8 @@
                         <outlet property="imageViewOutlet" destination="xI6-X0-Jhi" id="Kpa-7F-dGq"/>
                         <outlet property="initialView" destination="1wN-CL-Oca" id="X7y-BG-PpC"/>
                         <outlet property="threeButtonView" destination="0Hx-hj-QuT" id="HdP-Mc-cx1"/>
-                        <outlet property="videoThumbnailImageView" destination="tfh-yG-fZ4" id="TEL-Sm-Yl1"/>
                         <outlet property="videoView" destination="Cew-0S-tuM" id="bGu-Fd-lcK"/>
+                        <outlet property="webView" destination="89o-cY-zFw" id="CNs-ah-npd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

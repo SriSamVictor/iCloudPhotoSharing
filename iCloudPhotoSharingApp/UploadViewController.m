@@ -13,6 +13,7 @@
 #import <AVKit/AVKit.h>
 #import <ObjectiveDropboxOfficial/ObjectiveDropboxOfficial.h>
 #import <SVProgressHUD/SVProgressHUD.h>
+#import <NSGIF/NSGIF.h>
 
 @interface UploadViewController (){
     UIImage *savedImage ;
@@ -98,27 +99,44 @@
     videoUrlStr = [NSString stringWithFormat:@"%@",videoURL];
     if([videoUrlStr containsString:@".MOV"]){
         player = [AVPlayer playerWithURL:videoURL];
+        [SVProgressHUD showWithStatus:@"Please wait"];
         
-        AVAsset *asset = [AVAsset assetWithURL:videoURL];
-
-        // Calculate a time for the snapshot - I'm using the half way mark.
-        CMTime duration = [asset duration];
-        CMTime snapshot = CMTimeMake(duration.value / 2, duration.timescale);
-
-        // Create a generator and copy image at the time.
-        // I'm not capturing the actual time or an error.
-        AVAssetImageGenerator *generator =
-        [AVAssetImageGenerator assetImageGeneratorWithAsset:asset];
-        CGImageRef imageRef = [generator copyCGImageAtTime:snapshot
-                                                actualTime:nil
-                                                     error:nil];
-
-        // Make a UIImage and release the CGImage.
-        UIImage *thumbnail = [UIImage imageWithCGImage:imageRef];
-        self.videoThumbnailImageView.image = thumbnail;
-        CGImageRelease(imageRef);
+        // Thumbnail images as gif
+        [NSGIF optimalGIFfromURL:videoURL loopCount:0 completion:^(NSURL *GifURL) {
+            
+            NSLog(@"Finished generating GIF: %@", GifURL);
+            [SVProgressHUD dismiss];
+//            NSString *urlString = GifURL.absoluteString;
+//            UIImage *im = [UIImage imageWithData: [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString]]];
+//            self.videoThumbnailImageView.image = im;
+            [UIView animateWithDuration:0.3 animations:^{
+                self.webView.alpha = 1.0f;
+            }];
+            [self.webView loadRequest:[NSURLRequest requestWithURL:GifURL]];
+        }];
         
-        [self.view addSubview:self.avPlayerView];
+        // Thumbnail Images
+//        AVAsset *asset = [AVAsset assetWithURL:videoURL];
+//
+//        // Calculate a time for the snapshot - I'm using the half way mark.
+//        CMTime duration = [asset duration];
+//        CMTime snapshot = CMTimeMake(duration.value / 2, duration.timescale);
+//
+//        // Create a generator and copy image at the time.
+//        // I'm not capturing the actual time or an error.
+//        AVAssetImageGenerator *generator =
+//        [AVAssetImageGenerator assetImageGeneratorWithAsset:asset];
+//        CGImageRef imageRef = [generator copyCGImageAtTime:snapshot
+//                                                actualTime:nil
+//                                                     error:nil];
+//
+//        // Make a UIImage and release the CGImage.
+//        UIImage *thumbnail = [UIImage imageWithCGImage:imageRef];
+//        self.videoThumbnailImageView.image = thumbnail;
+//        CGImageRelease(imageRef);
+//
+//        [self.view addSubview:self.avPlayerView];
+        
         [self.avPlayerView setHidden:NO];
         [_initialView setHidden:YES];
         [_imageSuperView setHidden:YES];
@@ -266,7 +284,7 @@
     // NSData of the content that was downloaded - Use this to upload on the server or save locally in directory
 }
 - (IBAction)saveBtnAction:(id)sender {
-    if(_imageViewOutlet.image != nil || self.videoThumbnailImageView.image != nil){
+    if(_imageViewOutlet.image != nil || videoURL.absoluteString.length != 0){
         if([videoUrlStr containsString:@".MOV"]){
 
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:@"Video saved successfully to your gallery and files app...!!!" preferredStyle:UIAlertControllerStyleAlert];
@@ -376,7 +394,6 @@
 - (IBAction)gDriveSaveButtonAction:(id)sender {
     
 }
-
 - (IBAction)dropBoxButtonAction:(id)sender {
     [DBClientsManager authorizeFromController:[UIApplication sharedApplication]
                                    controller:[[self class] topMostController]

@@ -10,12 +10,91 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iCloudPhotoSharingApp/UploadViewController.m"
-            timestampString = "570611185.985461"
+            timestampString = "570625113.177177"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "353"
-            endingLineNumber = "353"
+            startingLineNumber = "371"
+            endingLineNumber = "371"
             landmarkName = "-saveVideo:pathString:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iCloudPhotoSharingApp/UploadViewController.m"
+            timestampString = "570625113.177253"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "-imagePickerController:didFinishPickingMediaWithInfo:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[UploadViewController imagePickerController:didFinishPickingMediaWithInfo:]"
+                  moduleName = "iCloudPhotoSharingApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jeanmartin/Documents/iOS%20Sample%20Applications/iCloudPhotoSharingApp/iCloudPhotoSharingApp/UploadViewController.m"
+                  timestampString = "570622961.023994"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "104"
+                  endingLineNumber = "104"
+                  offsetFromSymbolStart = "508">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__76-[UploadViewController imagePickerController:didFinishPickingMediaWithInfo:]_block_invoke"
+                  moduleName = "iCloudPhotoSharingApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jeanmartin/Documents/iOS%20Sample%20Applications/iCloudPhotoSharingApp/iCloudPhotoSharingApp/UploadViewController.m"
+                  timestampString = "570622961.02573"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "104"
+                  endingLineNumber = "104"
+                  offsetFromSymbolStart = "24">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__destroy_helper_block_.123"
+                  moduleName = "iCloudPhotoSharingApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jeanmartin/Documents/iOS%20Sample%20Applications/iCloudPhotoSharingApp/iCloudPhotoSharingApp/UploadViewController.m"
+                  timestampString = "570622961.027413"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "104"
+                  endingLineNumber = "104"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iCloudPhotoSharingApp/UploadViewController.m"
+            timestampString = "570625113.177313"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
+            landmarkName = "-imagePickerController:didFinishPickingMediaWithInfo:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

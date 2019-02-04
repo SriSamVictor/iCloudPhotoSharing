@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		55923B75871128E6077B14B3 /* libPods-iCloudPhotoSharingApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 655FC0A4569B01A3CA7A73EF /* libPods-iCloudPhotoSharingApp.a */; };
 		87CFDE129CC13F3B883F451E /* libPods-iCloudPhotoSharingAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F4930BC2CCB709B6C7FE510 /* libPods-iCloudPhotoSharingAppTests.a */; };
+		BA15647422081F8A00685936 /* TPKeyboardAvoidingCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA15646D22081F8A00685936 /* TPKeyboardAvoidingCollectionView.m */; };
+		BA15647522081F8A00685936 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA15646F22081F8A00685936 /* TPKeyboardAvoidingScrollView.m */; };
+		BA15647622081F8A00685936 /* TPKeyboardAvoidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA15647122081F8A00685936 /* TPKeyboardAvoidingTableView.m */; };
+		BA15647722081F8A00685936 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BA15647322081F8A00685936 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 		BA20373521E8572000FD30F0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BA20373421E8572000FD30F0 /* AppDelegate.m */; };
 		BA20373B21E8572000FD30F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA20373921E8572000FD30F0 /* Main.storyboard */; };
 		BA20373E21E8572000FD30F0 /* iCloudPhotoSharingApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BA20373C21E8572000FD30F0 /* iCloudPhotoSharingApp.xcdatamodeld */; };
@@ -19,6 +23,7 @@
 		BA20375B21E8572200FD30F0 /* iCloudPhotoSharingAppUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BA20375A21E8572200FD30F0 /* iCloudPhotoSharingAppUITests.m */; };
 		BA20376A21E865B000FD30F0 /* UploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA20376921E865B000FD30F0 /* UploadViewController.m */; };
 		BA92F64121E8C49900D17C5F /* NavigateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA92F64021E8C49900D17C5F /* NavigateViewController.m */; };
+		BACAEAF7220324A400252B56 /* TextEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BACAEAF6220324A400252B56 /* TextEditorViewController.m */; };
 		C5079A7B40FED932EBEB2B11 /* libPods-iCloudPhotoSharingAppUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F75BED7A6FD231EAE337BA /* libPods-iCloudPhotoSharingAppUITests.a */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +52,14 @@
 		543185D85D539011CA566A1D /* Pods-iCloudPhotoSharingAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCloudPhotoSharingAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iCloudPhotoSharingAppTests/Pods-iCloudPhotoSharingAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		655FC0A4569B01A3CA7A73EF /* libPods-iCloudPhotoSharingApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iCloudPhotoSharingApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BA95A60150A14E71F2B794F /* Pods-iCloudPhotoSharingApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCloudPhotoSharingApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iCloudPhotoSharingApp/Pods-iCloudPhotoSharingApp.debug.xcconfig"; sourceTree = "<group>"; };
+		BA15646C22081F8A00685936 /* TPKeyboardAvoidingCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingCollectionView.h; sourceTree = "<group>"; };
+		BA15646D22081F8A00685936 /* TPKeyboardAvoidingCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingCollectionView.m; sourceTree = "<group>"; };
+		BA15646E22081F8A00685936 /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
+		BA15646F22081F8A00685936 /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
+		BA15647022081F8A00685936 /* TPKeyboardAvoidingTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingTableView.h; sourceTree = "<group>"; };
+		BA15647122081F8A00685936 /* TPKeyboardAvoidingTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingTableView.m; sourceTree = "<group>"; };
+		BA15647222081F8A00685936 /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
+		BA15647322081F8A00685936 /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
 		BA1F6A9121F75DFA00784BC3 /* iCloudPhotoSharingApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iCloudPhotoSharingApp.entitlements; sourceTree = "<group>"; };
 		BA20373021E8572000FD30F0 /* iCloudPhotoSharingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCloudPhotoSharingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA20373321E8572000FD30F0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -67,6 +80,8 @@
 		BA20376921E865B000FD30F0 /* UploadViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UploadViewController.m; sourceTree = "<group>"; };
 		BA92F63F21E8C49900D17C5F /* NavigateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigateViewController.h; sourceTree = "<group>"; };
 		BA92F64021E8C49900D17C5F /* NavigateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavigateViewController.m; sourceTree = "<group>"; };
+		BACAEAF5220324A400252B56 /* TextEditorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextEditorViewController.h; sourceTree = "<group>"; };
+		BACAEAF6220324A400252B56 /* TextEditorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextEditorViewController.m; sourceTree = "<group>"; };
 		CE7859F79370517B5495328D /* Pods-iCloudPhotoSharingAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCloudPhotoSharingAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iCloudPhotoSharingAppTests/Pods-iCloudPhotoSharingAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FF3CCAF301E50E98D6C343C2 /* Pods-iCloudPhotoSharingAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCloudPhotoSharingAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iCloudPhotoSharingAppUITests/Pods-iCloudPhotoSharingAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -122,6 +137,29 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BA15646B22081F8A00685936 /* TPKeyboardAvoiding */ = {
+			isa = PBXGroup;
+			children = (
+				BA15646C22081F8A00685936 /* TPKeyboardAvoidingCollectionView.h */,
+				BA15646D22081F8A00685936 /* TPKeyboardAvoidingCollectionView.m */,
+				BA15646E22081F8A00685936 /* TPKeyboardAvoidingScrollView.h */,
+				BA15646F22081F8A00685936 /* TPKeyboardAvoidingScrollView.m */,
+				BA15647022081F8A00685936 /* TPKeyboardAvoidingTableView.h */,
+				BA15647122081F8A00685936 /* TPKeyboardAvoidingTableView.m */,
+				BA15647222081F8A00685936 /* UIScrollView+TPKeyboardAvoidingAdditions.h */,
+				BA15647322081F8A00685936 /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
+			);
+			path = TPKeyboardAvoiding;
+			sourceTree = "<group>";
+		};
+		BA1564782208202F00685936 /* Framework and Api */ = {
+			isa = PBXGroup;
+			children = (
+				BA15646B22081F8A00685936 /* TPKeyboardAvoiding */,
+			);
+			path = "Framework and Api";
+			sourceTree = "<group>";
+		};
 		BA20372721E8572000FD30F0 = {
 			isa = PBXGroup;
 			children = (
@@ -150,16 +188,19 @@
 				BA1F6A9121F75DFA00784BC3 /* iCloudPhotoSharingApp.entitlements */,
 				BA20373321E8572000FD30F0 /* AppDelegate.h */,
 				BA20373421E8572000FD30F0 /* AppDelegate.m */,
-				BA20376821E865B000FD30F0 /* UploadViewController.h */,
-				BA20376921E865B000FD30F0 /* UploadViewController.m */,
 				BA92F63F21E8C49900D17C5F /* NavigateViewController.h */,
 				BA92F64021E8C49900D17C5F /* NavigateViewController.m */,
+				BA20376821E865B000FD30F0 /* UploadViewController.h */,
+				BA20376921E865B000FD30F0 /* UploadViewController.m */,
+				BACAEAF5220324A400252B56 /* TextEditorViewController.h */,
+				BACAEAF6220324A400252B56 /* TextEditorViewController.m */,
 				BA20373921E8572000FD30F0 /* Main.storyboard */,
 				BA20373F21E8572100FD30F0 /* Assets.xcassets */,
 				BA20374121E8572100FD30F0 /* LaunchScreen.storyboard */,
 				BA20374421E8572100FD30F0 /* Info.plist */,
 				BA20374521E8572100FD30F0 /* main.m */,
 				BA20373C21E8572000FD30F0 /* iCloudPhotoSharingApp.xcdatamodeld */,
+				BA1564782208202F00685936 /* Framework and Api */,
 			);
 			path = iCloudPhotoSharingApp;
 			sourceTree = "<group>";
@@ -413,10 +454,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA20373521E8572000FD30F0 /* AppDelegate.m in Sources */,
+				BA15647522081F8A00685936 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				BA20374621E8572100FD30F0 /* main.m in Sources */,
+				BA15647622081F8A00685936 /* TPKeyboardAvoidingTableView.m in Sources */,
 				BA20376A21E865B000FD30F0 /* UploadViewController.m in Sources */,
 				BA20373E21E8572000FD30F0 /* iCloudPhotoSharingApp.xcdatamodeld in Sources */,
+				BACAEAF7220324A400252B56 /* TextEditorViewController.m in Sources */,
 				BA92F64121E8C49900D17C5F /* NavigateViewController.m in Sources */,
+				BA15647422081F8A00685936 /* TPKeyboardAvoidingCollectionView.m in Sources */,
+				BA15647722081F8A00685936 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

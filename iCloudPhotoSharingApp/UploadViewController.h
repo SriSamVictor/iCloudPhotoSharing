@@ -34,7 +34,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIView *dropBoxView;
 @property(strong,nonatomic)NSError *error;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+- (IBAction)OthersButtonAction:(id)sender;
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (strong, nonatomic)NSMutableDictionary *valuesDict;
+@property (weak, nonatomic) IBOutlet UIView *textEditorView;
+@property (weak, nonatomic) IBOutlet UITextField *titleTextField;
+@property (weak, nonatomic) IBOutlet UITextView *contentTextView;
+@property (weak, nonatomic) IBOutlet UITextField *formatTextField;
+- (IBAction)EditBtnAction:(id)sender;
 @end
 
 NS_ASSUME_NONNULL_END

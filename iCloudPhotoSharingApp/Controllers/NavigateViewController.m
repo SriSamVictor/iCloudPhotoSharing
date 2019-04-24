@@ -7,6 +7,9 @@
 //
 
 #import "NavigateViewController.h"
+#import "UploadViewController.h"
+#import "WelcomeViewController.h"
+#import <GoogleSignIn/GoogleSignIn.h>
 
 @interface NavigateViewController ()
 
@@ -17,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
+  
 }
 - (BOOL)shouldAutorotate
 {
@@ -31,6 +34,5 @@
 {
     return UIInterfaceOrientationMaskAll;
 }
-
 
 @end

@@ -42,7 +42,7 @@
     _contentTextView.layer.borderWidth = 1.0;
     _contentTextView.layer.cornerRadius = 5.0;
 
-    formatArray = [[NSMutableArray  alloc] initWithObjects:@".pdf",@".txt",@".docx", nil];
+    formatArray = [[NSMutableArray  alloc] initWithObjects:@".PDF",@".txt",@".docx",@".rtf", nil];
     
     formatPicker = [[UIPickerView alloc]init];
     

@@ -15,6 +15,11 @@
 #import <SVProgressHUD/SVProgressHUD.h>
 #import <NSGIF/NSGIF.h>
 #import "TextEditorViewController.h"
+#import "GalleryViewController.h"
+#import "SignUpViewController.h"
+#import <GoogleSignIn/GoogleSignIn.h>
+#import "AppDelegate.h"
+#import "UIViewController+LMSideBarController.h"
 
 @interface UploadViewController (){
     UIImage *savedImage ;
@@ -30,6 +35,7 @@
 @end
 
 @implementation UploadViewController
+@synthesize collectionImageArray;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -69,7 +75,36 @@
     _titleTextField.layer.backgroundColor = [UIColor lightGrayColor].CGColor;
     _titleTextField.layer.borderWidth = 1.0;
     _titleTextField.layer.cornerRadius = 5.0;
-
+    
+    self.profileImageViewOutlet.layer.cornerRadius = 25.0;
+    self.profileImageViewOutlet.clipsToBounds = YES;
+    
+    collectionImageArray = [[NSMutableArray alloc]init];
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    _nameStr = appDelegate.givenName;
+    _urlProfileImage = appDelegate.urlProfileImage;//..to read
+    NSLog(@"Name %@",_nameStr);
+    NSLog(@"url %@",_urlProfileImage);
+    NSString *urlProfileImageStr = _urlProfileImage.absoluteString;
+    NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: urlProfileImageStr]];
+    if(imageData != nil){
+        self.nameLabelOutlet.hidden = YES;
+        self.profileImageViewOutlet.hidden = NO;
+        self.profileImageViewOutlet.image = [UIImage imageWithData:imageData];
+    }else{
+        self.nameLabelOutlet.hidden = NO;
+        self.profileImageViewOutlet.hidden = YES;
+        self.nameLabelOutlet.text = [[UIDevice currentDevice]name];
+    }
+    UITapGestureRecognizer *singleTap =  [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapping:)];
+    [singleTap setNumberOfTapsRequired:1];
+    [self.profileImageViewOutlet setUserInteractionEnabled:YES];
+    [self.profileImageViewOutlet addGestureRecognizer:singleTap];
+}
+-(void)singleTapping:(UIGestureRecognizer *)recognizer {
+    NSLog(@"Hello");
+    [self.sideBarController showMenuViewControllerInDirection:LMSideBarControllerDirectionLeft];
 }
 - (void)viewWillAppear:(BOOL)animated{
         [super viewWillAppear:YES];
@@ -133,18 +168,42 @@
 }
 - (IBAction)cameraBtnAction:(id)sender {
     if(![self.textEditorView isHidden]){
-        UIAlertController *alertControl = [UIAlertController alertControllerWithTitle:@"Alert" message:@"Are you sure want to clear your text editor" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *alertActionOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertController *alertControl = [UIAlertController alertControllerWithTitle:@"Alert" message:@"Are you sure want to clear your text editor or click to save..!!!" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *alertActionOk = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             self.titleTextField.text = @"";
             self.contentTextView.text = @"";
             self.formatTextField.text = @"";
-            self.imageSuperView.hidden = NO;
+            self.imageSuperView.hidden = YES;
             self.textEditorView.hidden = YES;
-            self.avPlayerView.hidden = YES;
+            self.avPlayerView.hidden = NO;
             self.videoThumbnailImageView.hidden = YES;
             [self cameraMethod];
         }];
         UIAlertAction *alertActionCancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        [alertControl addAction:alertActionOk];
+        [alertControl addAction:alertActionCancel];
+        [self presentViewController:alertControl animated:YES completion:nil];
+    }else if(self.imageViewOutlet.image != nil){
+        UIAlertController *alertControl = [UIAlertController alertControllerWithTitle:@"Alert" message:@"Already your image was there. Are you sure you want to clear..!!!" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *alertActionOk = [UIAlertAction actionWithTitle:@"YES" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            self.imageViewOutlet.image = nil;
+            [self cameraMethod];
+        }];
+        UIAlertAction *alertActionCancel = [UIAlertAction actionWithTitle:@"NO" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        [alertControl addAction:alertActionOk];
+        [alertControl addAction:alertActionCancel];
+        [self presentViewController:alertControl animated:YES completion:nil];
+    }else if(videoURL.absoluteString.length != 0){
+        UIAlertController *alertControl = [UIAlertController alertControllerWithTitle:@"Alert" message:@"Are you sure want to clear the video or else click to save..!!!" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *alertActionOk = [UIAlertAction actionWithTitle:@"YES" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+             self->videoURL = [NSURL URLWithString:@""];
+            [self cameraMethod];
+        }];
+        UIAlertAction *alertActionCancel = [UIAlertAction actionWithTitle:@"NO" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
         }];
         [alertControl addAction:alertActionOk];
@@ -192,11 +251,10 @@
         [alertControl addAction:alertActionOk];
         [alertControl addAction:alertActionCancel];
         [self presentViewController:alertControl animated:YES completion:nil];
-        
     }else if(videoURL.absoluteString.length != 0){
-        UIAlertController *alertControl = [UIAlertController alertControllerWithTitle:@"Alert" message:@"Are you sure want to clear the video or else click to save..!!!" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *alertControl = [UIAlertController alertControllerWithTitle:@"Alert" message:@"Already your video was there. Are you sure you want to clear..!!!" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *alertActionOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            self.imageViewOutlet.image = nil;
+            self->videoURL = [NSURL URLWithString:@""];
             [self videoCamMethod];
         }];
         UIAlertAction *alertActionCancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -269,8 +327,10 @@
         [_textEditorView setHidden:YES];
         
     }else{
-//         For Image
+//     For Image
         savedImage = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+        self.imageViewOutlet.contentMode = UIViewContentModeScaleAspectFill;
+        self.imageViewOutlet.clipsToBounds = YES;
         self.imageViewOutlet.image=savedImage;
         [self.avPlayerView setHidden:YES];
         [self.initialView setHidden:YES];
@@ -285,7 +345,7 @@
         NSURL *videoUrl=(NSURL*)[info objectForKey:UIImagePickerControllerMediaURL];
         moviePath = [videoUrl path];
     }
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [picker.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
     self.valuesDict = [[NSMutableDictionary alloc]init];
@@ -341,7 +401,7 @@
                 
             }else{
                 
-                UIAlertController *alertControl = [UIAlertController alertControllerWithTitle:@"Alert" message:@"Are you sure want to clear the image" preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertController *alertControl = [UIAlertController alertControllerWithTitle:@"Alert" message:@"Already you placed the image from gallery. Are you sure you want to clear..!!" preferredStyle:UIAlertControllerStyleAlert];
                 UIAlertAction *alertActionOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                     
                     self.imageViewOutlet.image = nil;
@@ -368,7 +428,6 @@
             [alert addAction:ok];
             [self presentViewController:alert animated:YES completion:nil];
         }
-        
     }
 }
 
@@ -408,6 +467,8 @@
             UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                 NSData *fileData = [NSData dataWithContentsOfURL:url];
                 self->savedImage = [UIImage imageWithData:fileData];
+                self.imageViewOutlet.contentMode = UIViewContentModeScaleAspectFill;
+                self.imageViewOutlet.clipsToBounds = YES;
                 self.imageViewOutlet.image = self->savedImage;
                 [self.initialView setHidden:YES];
                 [self.avPlayerView setHidden:YES];
@@ -450,7 +511,42 @@
     // NSData of the content that was downloaded - Use this to upload on the server or save locally in directory
 }
 - (IBAction)saveBtnAction:(id)sender {
-    if(_imageViewOutlet.image != nil || videoURL.absoluteString.length != 0){
+    
+    if(![self.textEditorView isHidden]){
+        
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:@"Your text will be saved in the others folder in local storage..!!!" preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction *ok = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                //button click event
+            
+                [SVProgressHUD show];
+                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+                    
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    NSString *searchFolderName = @"Others";
+                    NSString *newOthersDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+                    
+                    NSPredicate *predicateOtherFolder = [NSPredicate predicateWithFormat:@"self.lastPathComponent == %@", searchFolderName];
+                    NSArray *matchingPaths = [[[NSFileManager defaultManager] subpathsAtPath:newOthersDirectory] filteredArrayUsingPredicate:predicateOtherFolder];
+                    NSString *OtherFolderStr = [matchingPaths objectAtIndex:0];
+                    NSString *newOtherPath = [newOthersDirectory stringByAppendingPathComponent:OtherFolderStr];
+                    NSString *newFilePath = [newOtherPath stringByAppendingPathComponent:[NSString stringWithFormat:@"/%@%@",self.titleTextField.text,self.formatTextField.text]];
+                    NSData *fileData = [self.contentTextView.text dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:NO];
+                    BOOL successData = [fileData writeToFile:newFilePath atomically:YES];
+                    NSLog(@"sucess data-- %d",successData);
+                    self.valuesDict = [@{} mutableCopy];
+                });
+                });
+                [SVProgressHUD dismiss];
+                self.initialView.hidden = NO;
+                self.avPlayerView.hidden = YES;
+                self.imageSuperView.hidden = YES;
+                self.textEditorView.hidden = YES;
+            }];
+            [alert addAction:ok];
+            [self presentViewController:alert animated:YES completion:nil];
+        
+    }else if(_imageViewOutlet.image != nil || videoURL.absoluteString.length != 0){
         if([videoUrlStr containsString:@".MOV"]){
 
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:@"Video saved successfully to your gallery and files app...!!!" preferredStyle:UIAlertControllerStyleAlert];
@@ -460,7 +556,6 @@
                 if (UIVideoAtPathIsCompatibleWithSavedPhotosAlbum (self->moviePath)) {
                     UISaveVideoAtPathToSavedPhotosAlbum (self->moviePath, nil, nil, nil);
                 }
-                    self.imageViewOutlet.image = nil;
                     [self.avPlayerView setHidden:YES];
                     [self.initialView setHidden:NO];
                     [self.imageSuperView setHidden:YES];
@@ -471,12 +566,12 @@
                 NSArray *matchingPaths = [[[NSFileManager defaultManager] subpathsAtPath:newVideoDirectory] filteredArrayUsingPredicate:predicate];
                 NSLog(@"%@", matchingPaths);
                 NSString *videoStr = [matchingPaths objectAtIndex:0];
-                newVideoPath = [newVideoDirectory stringByAppendingPathComponent:videoStr];
-                [self saveVideo:self->moviePath pathString:newVideoPath];
+                self->newVideoPath = [newVideoDirectory stringByAppendingPathComponent:videoStr];
+                [self saveVideo:self->moviePath pathString:self->newVideoPath];
+                self->videoURL = [[NSURL alloc] init];
             }];
             [alert addAction:ok];
             [self presentViewController:alert animated:YES completion:nil];
-            
         }else{
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:@"Picture saved successfully to your gallery and files app...!!!" preferredStyle:UIAlertControllerStyleAlert];
             
@@ -522,6 +617,7 @@
             NSString* path = [pathString stringByAppendingPathComponent:randomStringGenerator];
             NSData* data = UIImagePNGRepresentation(image);
             [data writeToFile:path atomically:YES];
+            [collectionImageArray addObject:savedImage];
         }else{
             NSLog(@"We can't support another file");
         }
@@ -543,15 +639,39 @@
 
 - (IBAction)galleryButtonAction:(id)sender {
     if(![self.textEditorView isHidden]){
-        UIAlertController *alertControl = [UIAlertController alertControllerWithTitle:@"Alert" message:@"Are you sure want to clear your text editor" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *alertControl = [UIAlertController alertControllerWithTitle:@"Alert" message:@"Are you sure want to clear your text editor or click to save..!!!" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *alertActionOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             self.titleTextField.text = @"";
             self.contentTextView.text = @"";
             self.formatTextField.text = @"";
-            self.imageSuperView.hidden = NO;
+            self.imageSuperView.hidden = YES;
             self.textEditorView.hidden = YES;
-            self.avPlayerView.hidden = YES;
+            self.avPlayerView.hidden = NO;
             self.videoThumbnailImageView.hidden = YES;
+            [self galleryMethod];
+        }];
+        UIAlertAction *alertActionCancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        [alertControl addAction:alertActionOk];
+        [alertControl addAction:alertActionCancel];
+        [self presentViewController:alertControl animated:YES completion:nil];
+    }else if(self.imageViewOutlet.image != nil){
+        UIAlertController *alertControl = [UIAlertController alertControllerWithTitle:@"Alert" message:@"Already your image was there. Are you sure you want to clear!!!" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *alertActionOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            self.imageViewOutlet.image = nil;
+            [self galleryMethod];
+        }];
+        UIAlertAction *alertActionCancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        [alertControl addAction:alertActionOk];
+        [alertControl addAction:alertActionCancel];
+        [self presentViewController:alertControl animated:YES completion:nil];
+    }else if(videoURL.absoluteString.length != 0){
+        UIAlertController *alertControl = [UIAlertController alertControllerWithTitle:@"Alert" message:@"Are you sure want to clear the video or else click to save..!!!" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *alertActionOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            self->videoURL = [NSURL URLWithString:@""];
             [self galleryMethod];
         }];
         UIAlertAction *alertActionCancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -581,7 +701,12 @@
     [self presentViewController:playerViewController animated:YES completion:nil];
 }
 - (IBAction)gDriveSaveButtonAction:(id)sender {
-    
+    UIAlertController *alertControl = [UIAlertController alertControllerWithTitle:@"Sorry" message:@"Coming soon...!!!" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *alertActionOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    [alertControl addAction:alertActionOk];
+    [self presentViewController:alertControl animated:YES completion:nil];
 }
 #pragma mark - Dropbox Methods
 - (IBAction)dropBoxButtonAction:(id)sender {
@@ -629,7 +754,25 @@
 }
 #pragma mark - Other Button Action
 - (IBAction)OthersButtonAction:(id)sender {
-    if(self.imageViewOutlet.image != nil){
+    if(![self.textEditorView isHidden]){
+        UIAlertController *alertControl = [UIAlertController alertControllerWithTitle:@"Alert" message:@"Already you edit something. Do you want to clear it. Click ok to clear..!!!" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *alertActionOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            self.titleTextField.text = @"";
+            self.contentTextView.text = @"";
+            self.formatTextField.text = @"";
+            self.imageSuperView.hidden = YES;
+            self.textEditorView.hidden = YES;
+            self.avPlayerView.hidden = NO;
+            self.videoThumbnailImageView.hidden = YES;
+            [self galleryMethod];
+        }];
+        UIAlertAction *alertActionCancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        [alertControl addAction:alertActionOk];
+        [alertControl addAction:alertActionCancel];
+        [self presentViewController:alertControl animated:YES completion:nil];
+    }else if(self.imageViewOutlet.image != nil){
         UIAlertController *alertControl = [UIAlertController alertControllerWithTitle:@"Alert" message:@"Click to save the image or click to clear the image. Decision is yours" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *alertActionOk = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                 UIImageWriteToSavedPhotosAlbum(self->savedImage, nil, nil, nil);
@@ -669,7 +812,6 @@
         UIAlertAction *alertActionCancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
         }];
-        
         [alertControl addAction:alertActionOk];
         [alertControl addAction:alertActionClear];
         [alertControl addAction:alertActionCancel];
@@ -687,5 +829,14 @@
     TextEditorViewController *textEditorViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"TextEditorViewController"];
     textEditorViewController.valuableDict = _valuesDict;
     [self.navigationController pushViewController:textEditorViewController animated:YES];
+}
+
+- (IBAction)galleryBtnAction:(id)sender {
+    GalleryViewController *galleryViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"GalleryViewController"];
+    galleryViewController.collectedImageArray = collectionImageArray;
+    [self.navigationController pushViewController:galleryViewController animated:YES];
+}
+- (IBAction)cancelBtnAction:(id)sender {
+    [self dismissViewControllerAnimated:NO completion:nil];
 }
 @end

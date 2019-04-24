@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UploadViewController : UIViewController<UINavigationControllerDelegate,UIImagePickerControllerDelegate,UIDocumentPickerDelegate>
+@interface UploadViewController : UIViewController<UINavigationControllerDelegate,UIImagePickerControllerDelegate,UIDocumentPickerDelegate,UIGestureRecognizerDelegate>
 @property (weak, nonatomic) IBOutlet UIView *imageSuperView;
 - (IBAction)cameraBtnAction:(id)sender;
 - (IBAction)videoBtnAction:(id)sender;
@@ -42,6 +42,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UITextView *contentTextView;
 @property (weak, nonatomic) IBOutlet UITextField *formatTextField;
 - (IBAction)EditBtnAction:(id)sender;
+- (IBAction)galleryBtnAction:(id)sender;
+@property(strong, nonatomic)NSMutableArray *collectionImageArray;
+- (IBAction)cancelBtnAction:(id)sender;@property (weak, nonatomic) IBOutlet UIButton *userNameOutlet;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabelOutlet;
+@property (strong, nonatomic)NSString *nameStr;
+@property(strong, nonatomic)NSURL *urlProfileImage;
+@property (weak, nonatomic) IBOutlet UIImageView *profileImageViewOutlet;
 @end
 
 NS_ASSUME_NONNULL_END

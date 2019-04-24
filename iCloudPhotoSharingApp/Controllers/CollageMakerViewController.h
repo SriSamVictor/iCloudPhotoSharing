@@ -1,8 +1,8 @@
 //
-//  NavigateViewController.h
+//  CollageMakerViewController.h
 //  iCloudPhotoSharingApp
 //
-//  Created by jeanmartin on 11/01/19.
+//  Created by jeanmartin on 26/02/19.
 //  Copyright © 2019 jeanmartin. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NavigateViewController : UINavigationController
+@interface CollageMakerViewController : UIViewController
 
 @end
 
